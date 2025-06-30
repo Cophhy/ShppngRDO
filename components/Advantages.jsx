@@ -1,8 +1,8 @@
 // components/Advantages.jsx
-'use client';
+'use client'
 
-import { motion } from 'framer-motion';
-import { FiCpu, FiBarChart2, FiShuffle, FiServer, FiShield, FiCode } from 'react-icons/fi';
+import { motion } from 'framer-motion'
+import { FiCpu, FiBarChart2, FiShuffle, FiServer, FiShield, FiCode } from 'react-icons/fi'
 
 const advantages = [
   {
@@ -35,7 +35,7 @@ const advantages = [
     title: 'Desenvolvimento de Apps',
     desc: 'Soluções personalizadas que otimizam processos e melhoram a UX.',
   },
-];
+]
 
 const containerVariants = {
   hidden: {},
@@ -44,12 +44,12 @@ const containerVariants = {
       staggerChildren: 0.15,
     },
   },
-};
+}
 
 const itemVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0 },
-};
+}
 
 export default function Advantages() {
   return (
@@ -66,7 +66,7 @@ export default function Advantages() {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: false, amount: 0.2 }}
       >
         {advantages.map((item, idx) => (
           <motion.div
@@ -81,5 +81,5 @@ export default function Advantages() {
         ))}
       </motion.div>
     </section>
-  );
+  )
 }
