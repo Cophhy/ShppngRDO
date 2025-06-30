@@ -11,6 +11,9 @@ import Resume   from "@/components/Resume";
 import Services from "@/components/Services";
 import Work     from "@/components/Work";
 import Contact  from "@/components/Contact";
+import Advantages from '@/components/Advantages';
+import TestimonialsCarousel from '@/components/TestimonialsCarousel'
+
 
 const Home = () => {
   return (
@@ -59,6 +62,8 @@ const Home = () => {
       <section id="resume"><Resume /></section>
       <section id="services"><Services /></section>
       <section id="work"><Work /></section>
+      <section id="advantages"><Advantages /></section>
+      <section id="testimonialscarousel"><TestimonialsCarousel /></section>
       <section id="contact"><Contact /></section>
     </>
   );
