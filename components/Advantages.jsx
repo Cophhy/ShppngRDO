@@ -53,7 +53,7 @@ const itemVariants = {
 
 export default function Advantages() {
   return (
-    <section id="advantages" className="py-20 bg-primary text-white">
+    <section id="advantages" className="py-20 bg-black text-white">
       <div className="container mx-auto text-center mb-12">
         <h2 className="text-3xl font-bold mb-4">Vantagens de escolher nossos serviços</h2>
         <p className="max-w-2xl mx-auto text-white/80">

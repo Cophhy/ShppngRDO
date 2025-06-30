@@ -83,7 +83,7 @@ const Contato = () => {
               {/* Custom Multi-Select */}
               <div className="relative">
                 <div
-                  className="w-full p-2 bg-primary text-white/60 rounded cursor-pointer"
+                  className="w-full p-2 bg-black text-white/60 rounded cursor-pointer"
                   onClick={() => setShowDropdown(!showDropdown)}
                 >
                   {selectedSectors.length > 0
@@ -91,7 +91,7 @@ const Contato = () => {
                     : "Selecione os setores envolvidos no projeto"}
                 </div>
                 {showDropdown && (
-                  <div className="absolute w-full mt-2 bg-primary text-white/60 rounded shadow-lg z-10 p-2">
+                  <div className="absolute w-full mt-2 bg-black text-white/60 rounded shadow-lg z-10 p-2">
                     {sectors.map((sector) => (
                       <div key={sector.value} className="flex items-center">
                         <input
