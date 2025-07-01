@@ -12,7 +12,7 @@ export default function Header() {
       <div className="max-w-screen-xl mx-auto flex flex-wrap items-center justify-between p-4">
         {/* Logo */}
         <a href="#" className="flex items-center space-x-3">
-          <img src="/assets/logo.png" className="h-10" alt="Logo" />
+          <img src="/assets/logo.png" className="h-12" alt="Logo" />
         </a>
 
         {/* Menu principal */}
