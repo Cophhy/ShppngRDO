@@ -1,36 +1,75 @@
-import Link from "next/link";
-import { Button } from "./ui/button";
+// Header.jsx
+'use client';
 
-// components
-import Nav from "./Nav";
-import MobileNav from "./MobileNav";
+import { useState } from 'react';
+import { FaChevronDown } from 'react-icons/fa';
 
-const Header = () => {
+export default function Header() {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
   return (
-    <header className="py-8 xl:py-12 text-white">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* logo */}
-        <Link href="/">
-          <h1 className="text-4xl font-semibold">
-            VPA<span className="text-accent"> Tech Consulting</span>
-          </h1>
-        </Link>
+    <nav className="bg-white border-b border-gray-200 shadow-sm">
+      <div className="max-w-screen-xl mx-auto flex flex-wrap items-center justify-between p-4">
+        {/* Logo */}
+        <a href="#" className="flex items-center space-x-3">
+          <img src="/logo.png" className="h-13" alt="Logo" />
+        </a>
 
-        {/* desktop nav & hire me button */}
-        <div className="hidden xl:flex items-center gap-8">
-          <Nav />
-          <Link href="/contact">
-            <Button>Hire me</Button>
-          </Link>
-        </div>
+        {/* Menu principal */}
+        <div className="hidden w-full md:block md:w-auto">
+          <ul className="flex flex-col md:flex-row md:space-x-8 font-medium mt-4 md:mt-0 text-sm">
+            {[
+              { label: 'LOJAS', href: '#' },
+              { label: 'ALIMENTAÇÃO', href: '#' },
+              { label: 'VILA GOURMET', href: '#' },
+              { label: 'SAÚDE & CONVENIÊNCIA', href: '#' },
+              { label: 'CINEMA', href: '#' },
+              { label: 'EVENTOS', href: '#' },
+            ].map((item, index) => (
+              <li key={index}>
+                <a
+                  href={item.href}
+                  className="block py-2 px-3 text-black hover:text-gray-300 transition-colors"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
 
-        {/* mobile nav */}
-        <div className="xl:hidden">
-          <MobileNav />
+            {/* Dropdown "Mais" */}
+            <li className="relative">
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="flex items-center py-2 px-3 text-black hover:text-gray-300 transition-colors"
+              >
+                Mais <FaChevronDown className="ml-1" />
+              </button>
+              {dropdownOpen && (
+                <div className="absolute z-10 bg-white divide-y divide-gray-100 rounded shadow w-44">
+                  <ul className="py-1 text-sm text-gray-700">
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:text-gray-300 transition-colors"
+                      >
+                        Localização
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:text-gray-300 transition-colors"
+                      >
+                        Contato
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </li>
+          </ul>
         </div>
       </div>
-    </header>
+    </nav>
   );
-};
-
-export default Header;
+}
