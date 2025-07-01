@@ -12,7 +12,7 @@ export default function Header() {
       <div className="max-w-screen-xl mx-auto flex flex-wrap items-center justify-between p-4">
         {/* Logo */}
         <a href="#" className="flex items-center space-x-3">
-          <img src="/logo.png" className="h-13" alt="Logo" />
+          <img src="/assets/logo.png" className="h-10" alt="Logo" />
         </a>
 
         {/* Menu principal */}
@@ -36,17 +36,25 @@ export default function Header() {
               </li>
             ))}
 
-            {/* Dropdown "Mais" */}
+            {/* Dropdown O SHOPPING */}
             <li className="relative">
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
                 className="flex items-center py-2 px-3 text-black hover:text-gray-300 transition-colors"
               >
-                Mais <FaChevronDown className="ml-1" />
+                O SHOPPING <FaChevronDown className="ml-1 text-xs" />
               </button>
               {dropdownOpen && (
-                <div className="absolute z-10 bg-white divide-y divide-gray-100 rounded shadow w-44">
-                  <ul className="py-1 text-sm text-gray-700">
+                <div className="absolute top-12 z-20 bg-white shadow-md rounded-md w-44">
+                  <ul className="text-sm text-black">
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:text-gray-300 transition-colors"
+                      >
+                        História
+                      </a>
+                    </li>
                     <li>
                       <a
                         href="#"
@@ -72,4 +80,4 @@ export default function Header() {
       </div>
     </nav>
   );
-}
+};
