@@ -108,13 +108,34 @@ export default function Footer() {
             </a>
           </div>
 
-          <p className="mt-4">Siga-nos</p>
-          <div className="flex space-x-3 mt-2">
-            <a href="#"><FaInstagram className="text-pink-500 text-xl" /></a>
-            <a href="#"><FaFacebookF className="text-blue-500 text-xl" /></a>
-            <a href="#"><FaLinkedinIn className="text-blue-600 text-xl" /></a>
-            <a href="#"><FaTiktok className="text-black-600 text-xl" /></a>
-          </div>
+
+            <p className="mt-4">Siga-nos</p>
+            <div className="flex space-x-3 mt-2">
+              <a
+                href="#"
+                className="w-8 h-8 flex items-center justify-center bg-pink-500 rounded-full"
+              >
+                <FaInstagram className="text-white text-xl" />
+              </a>
+              <a
+                href="#"
+                className="w-8 h-8 flex items-center justify-center bg-blue-500 rounded-full"
+              >
+                <FaFacebookF className="text-white text-xl" />
+              </a>
+              <a
+                href="#"
+                className="w-8 h-8 flex items-center justify-center bg-green-600 rounded-full"
+              >
+                <FaLinkedinIn className="text-white text-xl" />
+              </a>
+              <a
+                href="#"
+                className="w-8 h-8 flex items-center justify-center bg-black rounded-full"
+              >
+                <FaTiktok className="text-white text-xl" />
+              </a>
+            </div>
         </div>
 
         {/* ESTACIONAMENTO */}
