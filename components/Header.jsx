@@ -2,82 +2,104 @@
 'use client';
 
 import { useState } from 'react';
-import { FaChevronDown } from 'react-icons/fa';
+import { FaChevronDown, FaSearch } from 'react-icons/fa';
+import { useRouter } from 'next/navigation';
 
 export default function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const router = useRouter();
 
   return (
-    <nav className="bg-white border-b border-gray-200 shadow-sm">
-      <div className="max-w-screen-xl mx-auto flex flex-wrap items-center justify-between p-4">
+    <nav className="bg-white border-b border-gray-200 shadow-sm font-primary">
+      <div className="max-w-screen-xl mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <a href="#" className="flex items-center space-x-3">
           <img src="/assets/logo.png" className="h-12" alt="Logo" />
         </a>
 
         {/* Menu principal */}
-        <div className="hidden w-full md:block md:w-auto">
-          <ul className="flex flex-col md:flex-row md:space-x-8 font-medium mt-4 md:mt-0 text-sm">
-            {[
-              { label: 'LOJAS', href: '#' },
-              { label: 'ALIMENTAÇÃO', href: '#' },
-              { label: 'VILA GOURMET', href: '#' },
-              { label: 'SAÚDE & CONVENIÊNCIA', href: '#' },
-              { label: 'CINEMA', href: '#' },
-              { label: 'EVENTOS', href: '#' },
-            ].map((item, index) => (
-              <li key={index}>
-                <a
-                  href={item.href}
-                  className="block py-2 px-3 text-black hover:text-gray-300 transition-colors"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-
-            {/* Dropdown O SHOPPING */}
-            <li className="relative">
-              <button
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="flex items-center py-2 px-3 text-black hover:text-gray-300 transition-colors"
+        <ul className="hidden md:flex items-center space-x-8 text-sm uppercase">
+          {[
+            { label: 'Lojas', href: '#' },
+            { label: 'Alimentação', href: '#' },
+            { label: 'Vila Gourmet', href: '#' },
+            { label: 'Saúde & Conveniência', href: '#' },
+            { label: 'Cinema', href: '#' },
+            { label: 'Eventos', href: '#' },
+          ].map((item) => (
+            <li key={item.label}>
+              <a
+                href={item.href}
+                className="text-black hover:text-gray-500 transition-colors"
               >
-                O SHOPPING <FaChevronDown className="ml-1 text-xs" />
-              </button>
-              {dropdownOpen && (
-                <div className="absolute top-12 z-20 bg-white shadow-md rounded-md w-44">
-                  <ul className="text-sm text-black">
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:text-gray-300 transition-colors"
-                      >
-                        História
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:text-gray-300 transition-colors"
-                      >
-                        Localização
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:text-gray-300 transition-colors"
-                      >
-                        Contato
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              )}
+                {item.label}
+              </a>
             </li>
-          </ul>
+          ))}
+
+          {/* Dropdown "O Shopping" */}
+          <li className="relative">
+            <button
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              className="flex items-center text-black hover:text-gray-500 transition-colors"
+            >
+              O SHOPPING <FaChevronDown className="ml-1" />
+            </button>
+            {dropdownOpen && (
+              <div className="absolute right-0 mt-2 w-40 bg-white divide-y divide-gray-100 rounded shadow-lg">
+                <ul className="py-1">
+                  <li>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-black hover:text-gray-500 transition-colors"
+                    >
+                      Localização
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-black hover:text-gray-500 transition-colors"
+                    >
+                      Contato
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </li>
+        </ul>
+
+        {/* Busca */}
+        <div className="flex items-center space-x-4">
+          <button
+            onClick={() => setSearchOpen(!searchOpen)}
+            className="text-black hover:text-gray-500 transition-colors text-lg"
+          >
+            <FaSearch />
+          </button>
+          {searchOpen && (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (searchTerm.trim()) {
+                  router.push(`/search?query=${encodeURIComponent(searchTerm)}`);
+                }
+              }}
+            >
+              <input
+                type="text"
+                className="border border-gray-300 rounded px-3 py-1 text-black focus:outline-none focus:ring focus:border-accent"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Buscar..."
+              />
+            </form>
+          )}
         </div>
       </div>
     </nav>
   );
-};
+}

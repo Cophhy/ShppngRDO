@@ -3,8 +3,8 @@
 
 export default function AboveHeader() {
   return (
-    <div className="bg-[#eaf6f7] text-sm text-sky-900 flex justify-end items-center py-1">
-      <a href="#" className="flex items-center space-x-1 hover:underline mr-4">
+    <div className="bg-[#eaf6f7] font-primary text-sm text-sky-900 flex justify-end items-center py-1 px-6">
+      <a href="#" className="flex items-center space-x-1 hover:underline">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 42 32"
