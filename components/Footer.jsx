@@ -5,7 +5,7 @@ import { FaWhatsapp, FaInstagram, FaFacebookF, FaLinkedinIn, FaTiktok } from 're
 
 export default function Footer() {
   return (
-    <footer className="bg-white text-sm text-black border-t border-gray-200">
+    <footer className="bg-white text-sm text-black border-t border-gray-200 font-primary">
       <div className="max-w-screen-2xl mx-auto py-10 px-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
 
         {/* HORÁRIOS */}
